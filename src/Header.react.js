@@ -1,19 +1,17 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
 
-let Component = React.createClass({
+class Header extends Component{
 
-	displayName: 'PopupHeader',
-
-	getInitialProps: function () {
+	getInitialProps() {
 		return {
 			title:     null,
 			className: null
 		};
-	},
+	}
 
-	render: function () {
+	render() {
 		if (this.props.title) {
 			return (
 				<header className={this.props.className}>
@@ -25,6 +23,6 @@ let Component = React.createClass({
 		return null;
 	}
 
-});
+};
 
-export default Component;
+export default Header;

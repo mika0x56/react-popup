@@ -4,63 +4,88 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Component = _react2.default.createClass({
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	displayName: 'PopupAction',
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	propTypes: {
-		children: _react2.default.PropTypes.node.isRequired
-	},
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	getInitialProps: function getInitialProps() {
-		return {
-			onClick: function onClick() {},
-			className: 'btn',
-			url: null
-		};
-	},
+var ActionButton = function (_Component) {
+	_inherits(ActionButton, _Component);
 
-	handleClick: function handleClick() {
-		return this.props.onClick();
-	},
+	function ActionButton() {
+		_classCallCheck(this, ActionButton);
 
-	render: function render() {
-		var className = this.props.className,
-		    url = false;
+		return _possibleConstructorReturn(this, (ActionButton.__proto__ || Object.getPrototypeOf(ActionButton)).apply(this, arguments));
+	}
 
-		if (this.props.url) {
-			if (this.props.url !== '#') {
-				url = true;
-			}
+	_createClass(ActionButton, [{
+		key: 'getInitialProps',
+		value: function getInitialProps() {
+			return {
+				onClick: function onClick() {},
+				className: 'btn',
+				url: null
+			};
+		}
+	}, {
+		key: 'handleClick',
+		value: function handleClick() {
+			return this.props.onClick();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var className = this.props.className,
+			    url = false;
 
-			if (!url) {
+			if (this.props.url) {
+				if (this.props.url !== '#') {
+					url = true;
+				}
+
+				if (!url) {
+					return _react2.default.createElement(
+						'a',
+						{ target: '_blank', className: className },
+						this.props.children
+					);
+				}
+
 				return _react2.default.createElement(
 					'a',
-					{ target: '_blank', className: className },
+					{ href: this.props.url, target: '_blank', className: className },
 					this.props.children
 				);
 			}
 
 			return _react2.default.createElement(
-				'a',
-				{ href: this.props.url, target: '_blank', className: className },
+				'button',
+				{ onClick: this.handleClick, className: className },
 				this.props.children
 			);
 		}
+	}]);
 
-		return _react2.default.createElement(
-			'button',
-			{ onClick: this.handleClick, className: className },
-			this.props.children
-		);
-	}
+	return ActionButton;
+}(_react.Component);
 
-});
+;
 
-exports.default = Component;
+ActionButton.propTypes = {
+	children: _propTypes2.default.node.isRequired
+};
+
+exports.default = ActionButton;

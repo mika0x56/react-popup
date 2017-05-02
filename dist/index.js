@@ -12,6 +12,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _Store = require('./Store');
 
 var _Store2 = _interopRequireDefault(_Store);
@@ -38,15 +42,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var displayName = 'Popup';
 var propTypes = {
-    'className': _react2.default.PropTypes.string.isRequired,
-    'btnClass': _react2.default.PropTypes.string.isRequired,
-    'inputClass': _react2.default.PropTypes.string.isRequired,
-    'closeBtn': _react2.default.PropTypes.bool,
-    'closeHtml': _react2.default.PropTypes.string,
-    'defaultOk': _react2.default.PropTypes.string,
-    'defaultCancel': _react2.default.PropTypes.string,
-    'wildClasses': _react2.default.PropTypes.bool,
-    'closeOnOutsideClick': _react2.default.PropTypes.bool
+    'className': _propTypes2.default.string.isRequired,
+    'btnClass': _propTypes2.default.string.isRequired,
+    'inputClass': _propTypes2.default.string.isRequired,
+    'closeBtn': _propTypes2.default.bool,
+    'closeHtml': _propTypes2.default.string,
+    'defaultOk': _propTypes2.default.string,
+    'defaultCancel': _propTypes2.default.string,
+    'wildClasses': _propTypes2.default.bool,
+    'closeOnOutsideClick': _propTypes2.default.bool
 };
 
 var defaultProps = {
@@ -80,7 +84,7 @@ var Component = function (_React$Component) {
     function Component(props) {
         _classCallCheck(this, Component);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Component).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).call(this, props));
 
         initialState.closeOnOutsideClick = _this.props.closeOnOutsideClick;
 

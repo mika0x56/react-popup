@@ -1,16 +1,11 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
 import ActionButton from './ActionButton.react';
 
-let ButtonsSpace,
-    Component;
+class ButtonsSpace extends Component {
 
-ButtonsSpace = React.createClass({
-
-	displayName: 'PopupFooterButtons',
-
-	getInitialProps: function () {
+	getInitialProps() {
 		return {
 			buttons     : null,
 			className   : null,
@@ -20,27 +15,27 @@ ButtonsSpace = React.createClass({
 			btnClass    : null,
 			href        : null
 		};
-	},
+	}
 
-	onOk: function () {
+	onOk() {
 		if (this.props.onOk) {
 			return this.props.onOk();
 		}
-	},
+	}
 
-	onClose: function () {
+	onClose() {
 		if (this.props.onClose) {
 			return this.props.onClose();
 		}
-	},
+	}
 
-	buttonClick: function (action) {
+	buttonClick(action) {
 		if (this.props.buttonClick) {
 			return this.props.buttonClick(action);
 		}
-	},
+	}
 
-	wildClass: function (className, base) {
+	wildClass(className, base) {
 		if (!className) {
 			return null;
 		}
@@ -57,9 +52,9 @@ ButtonsSpace = React.createClass({
 		});
 
 		return finalClass.join(' ');
-	},
+	}
 
-	render: function () {
+	render() {
 		if (!this.props.buttons) {
 			return null;
 		}
@@ -89,13 +84,11 @@ ButtonsSpace = React.createClass({
 		);
 	}
 
-});
+};
 
-Component = React.createClass({
+class Footer extends Component {
 
-	displayName: 'PopupFooter',
-
-	getInitialProps: function () {
+	getInitialProps() {
 		return {
 			buttons: null,
 			className: null,
@@ -107,9 +100,9 @@ Component = React.createClass({
 			onOk: null,
 			onClose: null
 		};
-	},
+	}
 
-	render: function () {
+	render() {
 		if (this.props.buttons) {
 			return (
 				<footer className={this.props.className}>
@@ -141,6 +134,6 @@ Component = React.createClass({
 		return null;
 	}
 
-});
+};
 
-export default Component;
+export default Footer;

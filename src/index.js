@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import PopupStore from './Store';
 import Header from './Header.react';
 import Footer from './Footer.react';
@@ -8,15 +9,15 @@ import Constants from './Constants';
 
 const displayName = 'Popup';
 const propTypes = {
-    'className'           : React.PropTypes.string.isRequired,
-    'btnClass'            : React.PropTypes.string.isRequired,
-    'inputClass'          : React.PropTypes.string.isRequired,
-    'closeBtn'            : React.PropTypes.bool,
-    'closeHtml'           : React.PropTypes.string,
-    'defaultOk'           : React.PropTypes.string,
-    'defaultCancel'       : React.PropTypes.string,
-    'wildClasses'         : React.PropTypes.bool,
-    'closeOnOutsideClick' : React.PropTypes.bool
+    'className'           : PropTypes.string.isRequired,
+    'btnClass'            : PropTypes.string.isRequired,
+    'inputClass'          : PropTypes.string.isRequired,
+    'closeBtn'            : PropTypes.bool,
+    'closeHtml'           : PropTypes.string,
+    'defaultOk'           : PropTypes.string,
+    'defaultCancel'       : PropTypes.string,
+    'wildClasses'         : PropTypes.bool,
+    'closeOnOutsideClick' : PropTypes.bool
 };
 
 const defaultProps = {

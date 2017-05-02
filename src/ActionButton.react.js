@@ -1,39 +1,34 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-let Component = React.createClass({
+class ActionButton extends Component {
 
-	displayName: 'PopupAction',
-
-	propTypes: {
-		children: React.PropTypes.node.isRequired
-	},
-
-	getInitialProps: function () {
+	getInitialProps() {
 		return {
 			onClick   : function () {},
 			className : 'btn',
 			url       : null
 		};
-	},
+	}
 
-	handleClick: function () {
+	handleClick() {
 		return this.props.onClick();
-	},
+	}
 
-	render: function () {
+	render() {
 		var className = this.props.className, url = false;
-		
+
 		if (this.props.url) {
 			if (this.props.url !== '#') {
 				url = true;
 			}
-			
+
 			if (!url) {
 				return (<a target="_blank" className={className}>{this.props.children}</a>);
 			}
-			
+
 			return (<a href={this.props.url} target="_blank" className={className}>{this.props.children}</a>);
 		}
 
@@ -44,6 +39,11 @@ let Component = React.createClass({
 		);
 	}
 
-});
+};
 
-export default Component;
+ActionButton.propTypes = {
+    children: PropTypes.node.isRequired
+}
+
+
+export default ActionButton;

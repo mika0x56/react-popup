@@ -27,7 +27,8 @@
   "homepage": "https://github.com/minutemailer/react-popup",
   "peerDependencies": {
     "react": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "react-dom": "^15.0.1",
+    "prop-types": "^15.5.8"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
