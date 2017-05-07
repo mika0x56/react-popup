@@ -5,6 +5,11 @@ import PropTypes from 'prop-types';
 
 class ActionButton extends Component {
 
+    constructor(props) {
+        super(props)
+        this.handleClick = this.handleClick.bind(this)
+    }
+
 	getInitialProps() {
 		return {
 			onClick   : function () {},
@@ -13,7 +18,7 @@ class ActionButton extends Component {
 		};
 	}
 
-	handleClick() {
+    handleClick() {
 		return this.props.onClick();
 	}
 

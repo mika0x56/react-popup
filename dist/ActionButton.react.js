@@ -25,10 +25,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ActionButton = function (_Component) {
 	_inherits(ActionButton, _Component);
 
-	function ActionButton() {
+	function ActionButton(props) {
 		_classCallCheck(this, ActionButton);
 
-		return _possibleConstructorReturn(this, (ActionButton.__proto__ || Object.getPrototypeOf(ActionButton)).apply(this, arguments));
+		var _this = _possibleConstructorReturn(this, (ActionButton.__proto__ || Object.getPrototypeOf(ActionButton)).call(this, props));
+
+		_this.handleClick = _this.handleClick.bind(_this);
+		return _this;
 	}
 
 	_createClass(ActionButton, [{
